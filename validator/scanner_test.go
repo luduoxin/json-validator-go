@@ -1,6 +1,9 @@
 package validator
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 var validTests = []struct {
 	data string
@@ -38,4 +41,9 @@ func TestValid(t *testing.T) {
 			t.Errorf("Valid(%#q) = %v, want %v", tt.data, ok, tt.ok)
 		}
 	}
+}
+
+func ExampleValid() {
+	fmt.Println(Valid([]byte("{}")))
+	// Output: true
 }
